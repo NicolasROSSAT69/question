@@ -1,6 +1,3 @@
-/**
- * 
- */
 package fr.gamedev.question.data;
 
 import javax.persistence.Entity;
@@ -17,18 +14,30 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class UserAnswer {
-
+	/**
+	 * id.
+	 */
 	@GeneratedValue(generator = "seq_gen_userAnswer")
-	@GenericGenerator(name = "seq_gen_userAnswer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+	@GenericGenerator(name = "seq_gen_userAnswer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+	parameters = {
 			@Parameter(name = "sequence_name", value = "seq_answerUser"),
-			@Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
+			@Parameter(name = "initial_value", value = "0"),
+			@Parameter(name = "increment_size", value = "1") })
 	@Id
 	private long id;
-
+	/**
+	 * User user.
+	 */
 	@ManyToOne
 	private User user;
+	/**
+	 * Answer answer.
+	 */
 	@ManyToOne
 	private Answer answer;
+	/**
+	 * UserAnswer points.
+	 */
 	private long points;
 
 	/**
@@ -39,10 +48,10 @@ public class UserAnswer {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param theid the id to set
 	 */
-	public void setId(long id) {
-		this.id = id;
+	public void setId(final long theid) {
+		this.id = theid;
 	}
 
 	/**
@@ -53,10 +62,10 @@ public class UserAnswer {
 	}
 
 	/**
-	 * @param user the user to set
+	 * @param theuser the user to set
 	 */
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(final User theuser) {
+		this.user = theuser;
 	}
 
 	/**
@@ -67,10 +76,10 @@ public class UserAnswer {
 	}
 
 	/**
-	 * @param points the points to set
+	 * @param thepoints the points to set
 	 */
-	public void setPoints(long points) {
-		this.points = points;
+	public void setPoints(final long thepoints) {
+		this.points = thepoints;
 	}
 
 	/**
@@ -81,10 +90,10 @@ public class UserAnswer {
 	}
 
 	/**
-	 * @param answer the answer to set
+	 * @param theanswer the answer to set
 	 */
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
+	public void setAnswer(final Answer theanswer) {
+		this.answer = theanswer;
 	}
-	
+
 }

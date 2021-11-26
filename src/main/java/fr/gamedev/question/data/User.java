@@ -13,20 +13,28 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class User {
-
-	 @GeneratedValue(generator = "seq_gen_user")
-	 @GenericGenerator(
-			 name = "seq_gen_user",
-			 strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-			 parameters = {
-				 	@Parameter(name = "sequence_name", value = "seq_user"),
-				 	@Parameter(name = "initial_value", value = "0"),
-				 	@Parameter(name = "increment_size", value = "1")
-			 }
+	/**
+	 * id.
+	 */
+	@GeneratedValue(generator = "seq_gen_user")
+	@GenericGenerator(
+		name = "seq_gen_user",
+		strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+		parameters = {
+			@Parameter(name = "sequence_name", value = "seq_user"),
+			@Parameter(name = "initial_value", value = "0"),
+			@Parameter(name = "increment_size", value = "1")
+		}
 	)
 	@Id
 	private long id;
+	/**
+	 *User id.
+	 */
 	private String login;
+	/**
+	 * User lastName.
+	 */
 	private String lastName;
 
 	/**
@@ -37,10 +45,10 @@ public class User {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param theid the id to set
 	 */
-	public void setId(long id) {
-		this.id = id;
+	public void setId(final long theid) {
+		this.id = theid;
 	}
 
 	/**
@@ -51,10 +59,10 @@ public class User {
 	}
 
 	/**
-	 * @param login the login to set
+	 * @param thelogin the login to set
 	 */
-	public void setLogin(String login) {
-		this.login = login;
+	public void setLogin(final String thelogin) {
+		this.login = thelogin;
 	}
 
 	/**
@@ -65,10 +73,10 @@ public class User {
 	}
 
 	/**
-	 * @param lastName the lastName to set
+	 * @param thelastName the lastName to set
 	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastName(final String thelastName) {
+		this.lastName = thelastName;
 	}
 
 }
