@@ -18,14 +18,7 @@ import fr.gamedev.question.repository.UserAnswerRepository;
 @RestController
 public class ResponseController {
 
-    // TODO grp6 by DJE : JavaDoc : Il est possible d'écrire les commentaire JavaDoc
-    // sur une seul ligne lorsqu'il n'y a pas de paramètres (@author, @param,...)
-    /** total des points. */
-    // TODO grp6 by DJE : JavaDoc : Eclipse vous indique que cette varaible n'est
-    // jamais utilisé. C'est bien que vous ne l'utilisiez pas, vous risqueriez
-    // d'avoir des problemes de "ThreadSafe" si vous l'utilisiez. Supprimer cette
-    // attribut.
-    private Integer pointsTotal = 0;
+    /* private Integer pointsTotal = 0; */
 
     /** point pour une réponse juste. */
     private static final Integer POINT_JUSTE = 1;
@@ -33,7 +26,6 @@ public class ResponseController {
     /** point pour une réponse fausse. */
     private static final Integer POINT_FAUX = 0;
 
-    // TODO grp6 by DJE : POO : cameCase !
     /** Réponse utilisateur. */
     @Autowired
     private UserAnswerRepository userAnswerRepository;
@@ -45,8 +37,6 @@ public class ResponseController {
      * @param answer
      * @return point
      */
-    // TODO grp6 by DJE : POO : Attention au Majuscule (camelCase) pour que le
-    // nomage de vos varaible soit plus claire (idUserAnswer)
     @PostMapping(value = "/response", produces = "application/hal+json")
     public UserAnswer answer(@RequestParam
     final long idUserAnswer, @RequestParam
