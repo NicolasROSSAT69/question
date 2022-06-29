@@ -18,9 +18,13 @@ import fr.gamedev.question.repository.UserAnswerRepository;
 @RestController
 public class ResponseController {
 
-    //TODO grp6 by DJE : JavaDoc : Il est possible d'écrire les commentaire JavaDoc sur une seul ligne lorsqu'il n'y a pas de paramètres (@author, @param,...)
+    // TODO grp6 by DJE : JavaDoc : Il est possible d'écrire les commentaire JavaDoc
+    // sur une seul ligne lorsqu'il n'y a pas de paramètres (@author, @param,...)
     /** total des points. */
-    //TODO grp6 by DJE : JavaDoc : Eclipse vous indique que cette varaible n'est jamais utilisé. C'est bien que vous ne l'utilisiez pas, vous risqueriez d'avoir des problemes de "ThreadSafe" si vous l'utilisiez. Supprimer cette attribut.
+    // TODO grp6 by DJE : JavaDoc : Eclipse vous indique que cette varaible n'est
+    // jamais utilisé. C'est bien que vous ne l'utilisiez pas, vous risqueriez
+    // d'avoir des problemes de "ThreadSafe" si vous l'utilisiez. Supprimer cette
+    // attribut.
     private Integer pointsTotal = 0;
 
     /** point pour une réponse juste. */
@@ -29,25 +33,28 @@ public class ResponseController {
     /** point pour une réponse fausse. */
     private static final Integer POINT_FAUX = 0;
 
-    //TODO grp6 by DJE : POO : cameCase !
+    // TODO grp6 by DJE : POO : cameCase !
     /** Réponse utilisateur. */
     @Autowired
-    private UserAnswerRepository useranswerrepository;
+    private UserAnswerRepository userAnswerRepository;
 
     /**
      * Recupération des réponses d'un utilisateur pour une question défini.
      *
-     * @param iduseranswer
+     * @param idUserAnswer
      * @param answer
      * @return point
      */
-    //TODO grp6 by DJE : POO : Attention au Majuscule (camelCase) pour que le nomage de vos varaible soit plus claire (idUserAnswer)
+    // TODO grp6 by DJE : POO : Attention au Majuscule (camelCase) pour que le
+    // nomage de vos varaible soit plus claire (idUserAnswer)
     @PostMapping(value = "/response", produces = "application/hal+json")
-    public UserAnswer answer(@RequestParam final long iduseranswer, @RequestParam final Boolean answer) {
+    public UserAnswer answer(@RequestParam
+    final long idUserAnswer, @RequestParam
+    final Boolean answer) {
 
         UserAnswer response = null;
 
-        Optional<UserAnswer> askedQuestion = useranswerrepository.findById(iduseranswer);
+        Optional<UserAnswer> askedQuestion = userAnswerRepository.findById(idUserAnswer);
 
         Answer expectedAnswer = askedQuestion.get().getAnswer();
 
@@ -61,7 +68,7 @@ public class ResponseController {
 
         }
 
-        response = useranswerrepository.save(askedQuestion.get());
+        response = userAnswerRepository.save(askedQuestion.get());
 
         return response;
     }

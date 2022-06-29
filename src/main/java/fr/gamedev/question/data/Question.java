@@ -13,14 +13,14 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class Question {
-    //TODO grp6 by DJE : JavaDoc : le commentaire Javadoc s'applique sur lattribut "id", c'est lui qu'il faut documenter. Les annotations ont déja leur ducomentation. 
-    /**
-     * @GeneratedValue generator
-     */
+    // TODO grp6 by DJE : JavaDoc : le commentaire Javadoc s'applique sur lattribut
+    // "id", c'est lui qu'il faut documenter. Les annotations ont déja leur
+    // ducomentation.
+
     @GeneratedValue(generator = "seq_gen_question")
-    @GenericGenerator(name = "seq_gen_question", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = { @Parameter(name = "sequence_name", value = "seq_question"),
-                    @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
+    @GenericGenerator(name = "seq_gen_question", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+            @Parameter(name = "sequence_name", value = "seq_question"), @Parameter(name = "initial_value", value = "0"),
+            @Parameter(name = "increment_size", value = "1") })
     @Id
     private long id;
     /**
